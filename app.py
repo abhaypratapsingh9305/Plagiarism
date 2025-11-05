@@ -1,6 +1,10 @@
 import streamlit as st
 import pandas as pd
+
 import nltk
+nltk.download('punkt')
+nltk.download('punkt_tab')  # 👈 new line added
+
 from nltk import tokenize
 from bs4 import BeautifulSoup
 import requests
@@ -204,4 +208,5 @@ if st.button('Check for plagiarism or find similarities'):
         df['URL'] = df['URL'].apply(lambda x: f'<a href="{x}" target="_blank">{x}</a>')
         df_html = df.to_html(escape=False)
         st.write(df_html, unsafe_allow_html=True)
+
 
